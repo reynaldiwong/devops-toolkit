@@ -11,6 +11,15 @@ Currently, you'll find things like:
 
 - **Jenkins Pipelines** – My go-to multi-stage CI/CD setups for building, testing, and deploying services.
 
+## 🌿 Features
+### Jenkinsfile
+- Webhook-Driven Automation (automatically triggers from service repository webhooks for pull requests and releases.)
+- Flexible Git Integration (Handles both branch-based deployments (dev/sit) and tag-based releases (uat/prod), accommodating different release workflows.)
+- Parallelization (Significantly sped up pipeline speed by paralleling steps that don't dependent on each other.)
+- Multiple programming languages, Environments, and Projects in 1 script (allows centralized, efficient, and coordinated CI/CD pipelines while reducing duplication and improving maintainability.)
+- Centralized and Custom-tailored Configuration for each services (Using shared library to defines configurations for multiple services in a separate file.)
+- Smart Docker Caching (Implements Docker layer caching by reusing previous builds, significantly reducing build times for incremental changes. Exponentially reduced more if integrating cache mounts in Dockerfile)
+
 ## 🛠 How I Use This Repo
 
 - **Quick Reference** – I keep reusable patterns and snippets here so I don’t reinvent the wheel every time.
