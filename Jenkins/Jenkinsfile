@@ -439,4 +439,29 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            script {
+                def webhookUrl = 'https://your-notification-host'
+
+                def jobName = env.JOB_NAME
+                def buildNumber = env.BUILD_NUMBER
+                def buildUrl = env.BUILD_URL
+                def status = currentBuild.currentResult
+
+                def payload = """{
+                    "job_name": "${jobName}",
+                    "build_number": "${buildNumber}",
+                    "build_url": "${buildUrl}",
+                    "status": "${status}"
+                }"""
+
+                sh """
+                curl -X POST "$webhookUrl" \
+                     -H "Content-Type: application/json" \
+                     -d '${payload}'
+                """
+            }
+        }
+    }
 }
